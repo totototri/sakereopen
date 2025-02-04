@@ -93,14 +93,18 @@ const [sakeList, setSakeList] = useState<SakeType[]>(initialSakeList)
           <CardTitle>
             {language === 'ja' ? "日本酒の甘辛分布" : "Sake Sweetness Distribution"}
           </CardTitle>
-          {isAdmin && (
-            <Button className="flex items-center gap-2"
-               onClick={() => setShowForm(true)}
-            >
-              <Plus className="w-4 h-4" />
-              <span>{language === 'ja' ? "新規追加" : "Add New"}</span>
-            </Button>
-          )}
+
+{isAdmin && (
+  <Button 
+    className="flex items-center gap-2"
+    onClick={() => setShowForm(true)}  // 属性を揃える
+  >
+    <Plus className="w-4 h-4" />
+    <span>{language === 'ja' ? "新規追加" : "Add New"}</span>
+  </Button>
+)}
+
+
         </CardHeader>
         <CardContent>
           <div className="relative w-full h-96 bg-slate-50 rounded-lg">
