@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Globe, Lock, Plus } from "lucide-react"
+import SakeForm from './SakeForm'
 
 type SakeType = {
   id: number
@@ -46,7 +47,8 @@ const initialSakeList: SakeType[] = [
 ]
 
 export default function SakeManager() {
-  const [sakeList] = useState<SakeType[]>(initialSakeList)
+const [sakeList, setSakeList] = useState<SakeType[]>(initialSakeList)
+  const [showForm, setShowForm] = useState(false)
   const [selectedSake, setSelectedSake] = useState<SakeType | null>(null)
   const [isAdmin, setIsAdmin] = useState(false)
   const [language, setLanguage] = useState<'ja' | 'en'>('ja')
@@ -74,6 +76,17 @@ export default function SakeManager() {
         </Button>
       </div>
 
+{showForm && (
+  <SakeForm
+    language={language}
+    onSubmit={(data) => {
+      setSakeList(prev => [...prev, { ...data, id: Date.now() }])
+      setShowForm(false)
+    }}
+    onCancel={() => setShowForm(false)}
+  />
+)}
+
       {/* メインの分布図 */}
       <Card className="mb-4">
         <CardHeader className="flex flex-row items-center justify-between">
@@ -82,9 +95,15 @@ export default function SakeManager() {
           </CardTitle>
           {isAdmin && (
             <Button className="flex items-center gap-2">
+               onClick={() => setShowForm(true)}
+            >
               <Plus className="w-4 h-4" />
               <span>{language === 'ja' ? "新規追加" : "Add New"}</span>
             </Button>
+
+
+
+
           )}
         </CardHeader>
         <CardContent>
