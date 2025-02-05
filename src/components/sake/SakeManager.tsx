@@ -43,7 +43,7 @@ const initialSakeList: SakeType[] = [
     rice: { ja: "山田錦", en: "Yamadanishiki" },
     polishingRate: "40%",
     color: "#F97316"
-  }
+  },
 
 {
     id: 3,
