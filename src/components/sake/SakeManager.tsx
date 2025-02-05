@@ -44,6 +44,20 @@ const initialSakeList: SakeType[] = [
     polishingRate: "40%",
     color: "#F97316"
   }
+
+{
+    id: 3,
+    name: { ja: "雁木", en: "Gangi" },
+    sweetness: -7,  // 力強い飲みごたえと濃厚な旨味から、やや辛口寄りに設定
+    description: {
+      ja: "純米無濾過にこだわった日本酒。濃厚な旨味と抜群のキレが特徴。力強い飲みごたえと、しっかりとした味わいが魅力。",
+      en: "A pure rice, unfiltered sake known for its rich umami and crisp finish. Features a bold, full-bodied taste with robust flavors."
+    },
+    region: { ja: "山口県岩国市", en: "Iwakuni, Yamaguchi" },
+    rice: { ja: "山田錦", en: "Yamadanishiki" },
+    polishingRate: "60%",
+    color: "#4A5568"  // 渋い灰色で伝統と力強さを表現
+  }
 ]
 
 export default function SakeManager() {
